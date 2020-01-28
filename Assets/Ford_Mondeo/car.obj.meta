@@ -1,0 +1,179 @@
+fileFormatVersion: 2
+guid: ac8141d8452a1b24ea281e1c9ea789b5
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: body
+    100002: //RootNode
+    100004: door_l_in
+    100006: door_r
+    100008: door_r_n
+    100010: interior
+    100012: mirror_in
+    100014: mirror_l
+    100016: mirror_r
+    100018: siren_l
+    100020: steering
+    100022: trunk
+    100024: undercarriage
+    100026: wheels
+    100028: window_l
+    100030: window_r
+    100032: windows
+    400000: body
+    400002: //RootNode
+    400004: door_l_in
+    400006: door_r
+    400008: door_r_n
+    400010: interior
+    400012: mirror_in
+    400014: mirror_l
+    400016: mirror_r
+    400018: siren_l
+    400020: steering
+    400022: trunk
+    400024: undercarriage
+    400026: wheels
+    400028: window_l
+    400030: window_r
+    400032: windows
+    2100000: Tex_0034_1_dds
+    2100002: Tex_0031_1_dds
+    2100004: Tex_0040_1_dds
+    2100006: New_Material
+    2100008: Tex_0037_1_dds
+    2100010: Tex_1162_1_dds
+    2300000: body
+    2300002: door_l_in
+    2300004: door_r
+    2300006: door_r_n
+    2300008: interior
+    2300010: mirror_in
+    2300012: mirror_l
+    2300014: mirror_r
+    2300016: siren_l
+    2300018: steering
+    2300020: trunk
+    2300022: undercarriage
+    2300024: wheels
+    2300026: window_l
+    2300028: window_r
+    2300030: windows
+    3300000: body
+    3300002: door_l_in
+    3300004: door_r
+    3300006: door_r_n
+    3300008: interior
+    3300010: mirror_in
+    3300012: mirror_l
+    3300014: mirror_r
+    3300016: siren_l
+    3300018: steering
+    3300020: trunk
+    3300022: undercarriage
+    3300024: wheels
+    3300026: window_l
+    3300028: window_r
+    3300030: windows
+    4300000: body
+    4300002: door_l_in
+    4300004: door_r
+    4300006: door_r_n
+    4300008: interior
+    4300010: mirror_in
+    4300012: mirror_l
+    4300014: mirror_r
+    4300016: siren_l
+    4300018: steering
+    4300020: trunk
+    4300022: undercarriage
+    4300024: wheels
+    4300026: window_l
+    4300028: window_r
+    4300030: windows
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,224 @@
+fileFormatVersion: 2
+guid: ed744f10ac272154a96b4cffacdf8a5b
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: 10572_TrafficCone_v02
+    100002: 10572_TrafficCone_v02_001
+    100004: BigWall1
+    100006: BigWall1_001
+    100008: //RootNode
+    100010: Cube
+    100012: Cube_001
+    100014: lowman_shoes
+    100016: Plane
+    100018: Plane_001
+    100020: Plane_002
+    100022: Plane_003
+    100024: Plane_004
+    100026: Plane_005
+    100028: Plane_006
+    100030: Plane_007
+    100032: Plane_008
+    100034: Plane_009
+    100036: Plane_010
+    100038: Plane_011
+    100040: Plane_012
+    100042: SmallWall1
+    100044: SmallWall1_001
+    400000: 10572_TrafficCone_v02
+    400002: 10572_TrafficCone_v02_001
+    400004: BigWall1
+    400006: BigWall1_001
+    400008: //RootNode
+    400010: Cube
+    400012: Cube_001
+    400014: lowman_shoes
+    400016: Plane
+    400018: Plane_001
+    400020: Plane_002
+    400022: Plane_003
+    400024: Plane_004
+    400026: Plane_005
+    400028: Plane_006
+    400030: Plane_007
+    400032: Plane_008
+    400034: Plane_009
+    400036: Plane_010
+    400038: Plane_011
+    400040: Plane_012
+    400042: SmallWall1
+    400044: SmallWall1_001
+    2100000: 10572_TrafficCone_v02_Reflective__10572_TrafficCone_v02_jpg
+    2100002: 10572_TrafficCone_v02_NonReflective__10572_TrafficCone_v02_jpg
+    2100004: Material_009__woodbox_jpg_001
+    2100006: Material_008__grille-ventilation-moderne-metal_78361-509_jpg_001
+    2100008: Material_008
+    2100010: Material_007__abstract-metal-texture-1155863_jpg
+    2100012: Material_006__dirty-garage-door_jpg_001
+    2100014: unnamed
+    2100016: Material_005__brick_texture3354_jpg
+    2100018: Material_004__brick_texture3354_jpg
+    2100020: Material_002__brick_texture3354_jpg
+    2100022: Material_003__brick_texture3354_jpg
+    2100024: Material_001__Concrete23_col_jpg
+    2100026: Material_010__stripsYellow_jpg_001
+    2300000: 10572_TrafficCone_v02
+    2300002: 10572_TrafficCone_v02_001
+    2300004: BigWall1
+    2300006: BigWall1_001
+    2300008: Cube
+    2300010: Cube_001
+    2300012: lowman_shoes
+    2300014: Plane
+    2300016: Plane_001
+    2300018: Plane_002
+    2300020: Plane_003
+    2300022: Plane_004
+    2300024: Plane_005
+    2300026: Plane_006
+    2300028: Plane_007
+    2300030: Plane_008
+    2300032: Plane_009
+    2300034: Plane_010
+    2300036: Plane_011
+    2300038: Plane_012
+    2300040: SmallWall1
+    2300042: SmallWall1_001
+    3300000: 10572_TrafficCone_v02
+    3300002: 10572_TrafficCone_v02_001
+    3300004: BigWall1
+    3300006: BigWall1_001
+    3300008: Cube
+    3300010: Cube_001
+    3300012: lowman_shoes
+    3300014: Plane
+    3300016: Plane_001
+    3300018: Plane_002
+    3300020: Plane_003
+    3300022: Plane_004
+    3300024: Plane_005
+    3300026: Plane_006
+    3300028: Plane_007
+    3300030: Plane_008
+    3300032: Plane_009
+    3300034: Plane_010
+    3300036: Plane_011
+    3300038: Plane_012
+    3300040: SmallWall1
+    3300042: SmallWall1_001
+    4300000: 10572_TrafficCone_v02_001
+    4300002: Cube_001
+    4300004: Cube
+    4300006: Plane_012
+    4300008: Plane_011
+    4300010: Plane_008
+    4300012: Plane_004
+    4300014: Plane_010
+    4300016: Plane_009
+    4300018: Plane_007
+    4300020: Plane_006
+    4300022: Plane_005
+    4300024: Plane_003
+    4300026: Plane_002
+    4300028: Plane_001
+    4300030: SmallWall1_001
+    4300032: BigWall1_001
+    4300034: BigWall1
+    4300036: SmallWall1
+    4300038: Plane
+    4300040: lowman_shoes
+    4300042: 10572_TrafficCone_v02
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_001__Concrete23_col_jpg
+    second: {fileID: 2100000, guid: a2562fbb8c8c52b43812f3aa175d26e2, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
