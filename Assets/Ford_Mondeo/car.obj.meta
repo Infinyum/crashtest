@@ -91,7 +91,12 @@ ModelImporter:
     4300026: window_l
     4300028: window_r
     4300030: windows
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tex_1162_1_dds
+    second: {fileID: 2100000, guid: 106c87a569cd02246a3e6627768b3f69, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
