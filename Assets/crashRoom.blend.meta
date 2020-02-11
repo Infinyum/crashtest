@@ -137,6 +137,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Material_001__Concrete23_col_jpg
     second: {fileID: 2100000, guid: a2562fbb8c8c52b43812f3aa175d26e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_002__brick_texture3354_jpg
+    second: {fileID: 2100000, guid: fb3eb33d36fd8e041b0f67bfcd6b9a28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_006__dirty-garage-door_jpg_001
+    second: {fileID: 2100000, guid: e73a9f0248524954db83dce4108c47fb, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
