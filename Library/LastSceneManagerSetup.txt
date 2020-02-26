@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/BetterScene.unity
+- path: Assets/Scenes/BetterScene2.unity
   isLoaded: 1
   isActive: 1

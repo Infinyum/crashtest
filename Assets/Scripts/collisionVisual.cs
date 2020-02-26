@@ -124,6 +124,11 @@ public class collisionVisual : MonoBehaviour{
 			bool first = true;
 			foreach (collisionForce impact in impacts){
 
+				if(impact.intensity.magnitude <= 0.1)
+				{
+					return;
+				}
+
 				//We compute the actual size of the line
 				float sizeRay = lineRadiusCoeff / 2.0f * impact.intensity.magnitude * 1.5f;
 

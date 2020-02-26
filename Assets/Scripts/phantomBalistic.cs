@@ -16,7 +16,21 @@ public class phantomBalistic : MonoBehaviour{
 	public Material phantomMat;			//The material we use to represent "phantoms"
     public bool enableScript = true;    //is the script enabled ?
 	public bool drawOnCollision = false;//do we draw a phantom when the collision occurs ?
-	public int frameFrequency = 15;		//how often do we draw a phantom ? (every 15 frames currently => 0.25s)
+	public int frameFrequency = 15;     //how often do we draw a phantom ? (every 15 frames currently => 0.25s)
+
+	private Rigidbody rb;
+
+
+	// Start is called before the first frame update
+	void Start(){
+
+		//init the frame counter
+		frameNumber = 0;
+
+		rb = GetComponentInParent<Rigidbody>();
+
+	}
+
 
 	private void drawPhantom(){
 		// Get instantiated mesh
@@ -45,17 +59,14 @@ public class phantomBalistic : MonoBehaviour{
 		obj.GetComponent<Rigidbody>().detectCollisions = false;
 		*/
 	}
-
-	// Start is called before the first frame update
-	void Start(){
-
-		//init the frame counter
-        frameNumber = 0;
-
-    }
-
+		
     // Update is called once per frame
     void Update(){
+
+		if(rb.velocity.magnitude <= 0.1)
+		{
+			return;
+		}
 
 		//if the script is enabled => we compute things
         if (enableScript){
