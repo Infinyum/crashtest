@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Class to wrap the LineRenderer Object (makes it easier to use)
+ * 
+ */
 public struct LineDrawer
 {
     public LineRenderer lineRenderer;
@@ -32,7 +36,7 @@ public struct LineDrawer
     }
 
     //Draws lines through the provided vertices
-    public void DrawLineInGameView(Vector3 start, Vector3 end, Color color)
+    public void DrawLineInGameView(Vector3 start, Vector3 end, Color startColor, Color endColor, float startWidth, float endWidth)
     {
         if (lineRenderer == null)
         {
@@ -40,13 +44,13 @@ public struct LineDrawer
         }
 
         //Set color
-        lineRenderer.material.color = color;
-        lineRenderer.startColor = color;
-        lineRenderer.endColor = color;
+        lineRenderer.material.color = startColor;
+        lineRenderer.startColor = startColor;
+        lineRenderer.endColor = endColor;
 
         //Set width
-        lineRenderer.startWidth = lineSize;
-        lineRenderer.endWidth = lineSize;
+        lineRenderer.startWidth = startWidth;
+        lineRenderer.endWidth = endWidth;
 
         //Set line count which is 2
         lineRenderer.positionCount = 2;
@@ -65,96 +69,135 @@ public struct LineDrawer
     }
 }
 
+/**
+ * Struct to group what we need to draw a line : a contact point and an intensity
+ */ 
 public struct collisionForce
 {
     public ContactPoint contactPoint;
     public Vector3 intensity;
 }
 
-public class collisionVisual : MonoBehaviour
-{
+/**
+ * Script to visually draw lines on collision points 
+ */
+public class collisionVisual : MonoBehaviour{
 
-    public List<collisionForce> impacts;
+	
+    private int i = 0;					// internal counter of lines
+	private List<LineDrawer> lines;     //list of available lines
+	public List<collisionForce> impacts;//List of impact points (where we draw lines)
 
-    private int i = 0;
-    public float lineRadius = 0.025f;
+	//////////////////// Parameters of the script ////////////////////
 
-    private List<LineDrawer> l;
-    private List<LineDrawer> permanentL;
-    public int maxNumberLine = 2500;
-    public double interlineMinDistance = 0.2;
+	public float lineRadiusCoeff = 0.01f;       //"radius" of the line (how big is the line)
+	public int maxNumberLine = 2500;            //How much lines can we have simultaneously ?
+	public double interlineMinDistance = 0.2;   //How far MUST be two lines to exist ?
+	public bool enableScript = true;			//is the script enabled ?
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
+	// Start is called before the first frame update
+	void Start(){
+
+		//We initialize our lists
         impacts = new List<collisionForce>();
-        l = new List<LineDrawer>();
+        lines = new List<LineDrawer>();
 
-        for (int j = 0; j < maxNumberLine; j++)
-        {
-            var lineDrawer = new LineDrawer(lineRadius);
-            lineDrawer.lineRenderer.SetWidth(lineRadius, lineRadius);
-            l.Add(lineDrawer);
+		//We fill our lineDrawer list (=> ready to draw lines)
+        for (int j = 0; j < maxNumberLine; j++){
+
+            var lineDrawer = new LineDrawer(lineRadiusCoeff);
+            lineDrawer.lineRenderer.startWidth = lineRadiusCoeff;
+            lineDrawer.lineRenderer.endWidth = lineRadiusCoeff;
+            lines.Add(lineDrawer);
         }
 
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        ContactPoint previousContact = new ContactPoint();
-        bool first = true;
-        foreach (collisionForce impact in impacts)
-        {
+    void Update(){
 
-            if (!first)
-            {
+		//We do something only if the script is enabled
+		if (enableScript){
 
-                Vector3 p = previousContact.point;
-                Vector3 p2 = impact.contactPoint.point;
-                double dist2 = Mathf.Sqrt((p2.x - p.x) * (p2.x - p.x) + (p2.y - p.y) * (p2.y - p.y) + (p2.z - p.z) * (p2.z - p.z));
+			ContactPoint previousContact = new ContactPoint();
+			bool first = true;
+			foreach (collisionForce impact in impacts){
 
-                //We don't want to draw overlapping rays
-                if (dist2 > interlineMinDistance)
-                {
+				//We compute the actual size of the line
+				float sizeRay = lineRadiusCoeff / 2.0f * impact.intensity.magnitude * 1.5f;
 
-                    Vector3 endPoint = new Vector3(-impact.contactPoint.normal.x * impact.intensity.x, -impact.contactPoint.normal.y * impact.intensity.y, -impact.contactPoint.normal.z * impact.intensity.z);
-                    l[i % maxNumberLine].DrawLineInGameView(impact.contactPoint.point, impact.contactPoint.point - endPoint, Color.red);
-                    i = (i % maxNumberLine) + 1;
-                    previousContact = impact.contactPoint;
-                }
-                
-            }
-            else
-            {
+				if (!first){
 
-                Vector3 endPoint = new Vector3(-impact.contactPoint.normal.x * impact.intensity.x, -impact.contactPoint.normal.y * impact.intensity.y, -impact.contactPoint.normal.z * impact.intensity.z);
-                l[i % maxNumberLine].DrawLineInGameView(impact.contactPoint.point, impact.contactPoint.point - endPoint, Color.red);
+					Vector3 p = previousContact.point;
+					Vector3 p2 = impact.contactPoint.point;
+					double dist2 = Mathf.Sqrt((p2.x - p.x) * (p2.x - p.x) + (p2.y - p.y) * (p2.y - p.y) + (p2.z - p.z) * (p2.z - p.z));
+
+					//We don't want to draw overlapping rays
+					if (dist2 > interlineMinDistance)
+					{
+
+						Vector3 endPoint = new Vector3(-impact.contactPoint.normal.x * impact.intensity.x, -impact.contactPoint.normal.y * impact.intensity.y, -impact.contactPoint.normal.z * impact.intensity.z);
+
+						//We setup the draw (color mostly)
+						var v = impact.contactPoint.point - endPoint;
+						v = v.normalized;
+						Color vColorStart = new Color(v.x / v.magnitude, v.y / v.magnitude, v.z / v.magnitude);
+						Color vColorEnd = vColorStart;//new Color(endPoint.x / endPoint.magnitude, endPoint.y / endPoint.magnitude, endPoint.z / endPoint.magnitude);
+
+						//We take one of the lineDrawer and use it to draw our line
+						lines[i % maxNumberLine].DrawLineInGameView(impact.contactPoint.point, impact.contactPoint.point - endPoint, vColorStart, vColorEnd, sizeRay, sizeRay);
+						i = (i % maxNumberLine) + 1;	//increment counter
+						previousContact = impact.contactPoint;
+					}
+				}
+				// For the first contact point, we don't check the previous line as there is no previous line...
+				else
+				{
+
+					Vector3 endPoint = new Vector3(-impact.contactPoint.normal.x * impact.intensity.x, -impact.contactPoint.normal.y * impact.intensity.y, -impact.contactPoint.normal.z * impact.intensity.z);
+
+					var v = impact.contactPoint.point;
+					Color vColorStart = new Color(v.x / v.magnitude, v.y / v.magnitude, v.z / v.magnitude);
+					Color vColorEnd = new Color(endPoint.x / endPoint.magnitude, endPoint.y / endPoint.magnitude, endPoint.z / endPoint.magnitude);
+
+					lines[i % maxNumberLine].DrawLineInGameView(impact.contactPoint.point, impact.contactPoint.point - endPoint, vColorStart, vColorEnd, sizeRay, sizeRay);
+					i = (i % maxNumberLine) + 1;
+					previousContact = impact.contactPoint;
+					first = false;
+				}
 
 
-                i = (i % maxNumberLine) + 1;
-                previousContact = impact.contactPoint;
-                first = false;
-            }
 
-            
-
-            //Debug.DrawRay(contact.point, -contact.normal, Color.red);       
-        }
-
+				//Debug.DrawRay(contact.point, -contact.normal, Color.red);       
+			}
+		}
     }
 
-    void OnCollisionStay(Collision collisionInfo)
+    void OnCollisionEnter(Collision collisionInfo)
     {
-        // Debug-draw all contact points and normals
-        foreach (ContactPoint contact in collisionInfo.contacts)
-        {
-            collisionForce c = new collisionForce();
-            c.contactPoint = contact;
-            c.intensity = collisionInfo.relativeVelocity;
-            impacts.Add(c);
 
-        }
+		/* One point collision ray */
+
+		//We compute the collision only if the script is enabled
+		if (enableScript){
+			ContactPoint contact = collisionInfo.contacts[0];
+			collisionForce c = new collisionForce();
+			c.contactPoint = contact;
+			c.intensity = collisionInfo.relativeVelocity;
+			impacts.Add(c);
+		}
+
+
+
+        //Multiple ray for same contact
+
+        //foreach (ContactPoint contact in collisionInfo.contacts){
+        //    collisionForce c = new collisionForce();
+        //    c.contactPoint = contact;
+        //    c.intensity = collisionInfo.relativeVelocity;
+        //    impacts.Add(c);
+
+        //}
     }
 }
