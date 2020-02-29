@@ -179,30 +179,43 @@ public class collisionVisual : MonoBehaviour{
 		}
     }
 
-    void OnCollisionEnter(Collision collisionInfo)
-    {
-
+	void addRay(Collision collisionInfo)
+	{
 		/* One point collision ray */
 
 		//We compute the collision only if the script is enabled
-		if (enableScript){
-			ContactPoint contact = collisionInfo.contacts[0];
-			collisionForce c = new collisionForce();
-			c.contactPoint = contact;
-			c.intensity = collisionInfo.relativeVelocity;
-			impacts.Add(c);
+		//if (enableScript){
+		//	ContactPoint contact = collisionInfo.contacts[0];
+		//	collisionForce c = new collisionForce();
+		//	c.contactPoint = contact;
+		//	c.intensity = collisionInfo.relativeVelocity;
+		//	impacts.Add(c);
+		//}
+
+
+
+		//Multiple ray for same contact
+		if (enableScript)
+		{
+			foreach (ContactPoint contact in collisionInfo.contacts)
+			{
+				collisionForce c = new collisionForce();
+				c.contactPoint = contact;
+				c.intensity = collisionInfo.relativeVelocity;
+				impacts.Add(c);
+
+			}
 		}
 
+	}
 
+	void OnCollisionEnter(Collision collisionInfo)
+	{
+		addRay(collisionInfo);
+	}
 
-        //Multiple ray for same contact
-
-        //foreach (ContactPoint contact in collisionInfo.contacts){
-        //    collisionForce c = new collisionForce();
-        //    c.contactPoint = contact;
-        //    c.intensity = collisionInfo.relativeVelocity;
-        //    impacts.Add(c);
-
-        //}
-    }
+	void OnCollisionStay(Collision collisionInfo)
+	{
+		addRay(collisionInfo);
+	}	
 }
